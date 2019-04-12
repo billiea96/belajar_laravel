@@ -14,3 +14,37 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('halo',function(){
+	return 'Halo!!! yang malas ngoding';
+});
+
+/*Route::get('blog',function(){
+	return view('blog');
+});*/
+
+Route::get('/blog','BlogController@home');
+Route::get('/blog/tentang','BlogController@tentang');
+Route::get('/blog/kontak','BlogController@kontak');
+
+Route::get('dosen', 'DosenController@index');
+
+// Route::get('pegawai/{nama}','PegawaiController@index');
+Route::get('pegawai/','PegawaiController@home');
+Route::get('/pegawai/cari','PegawaiController@cari');
+
+Route::get('pegawai/tambah','PegawaiController@tambah');
+Route::post('pegawai/store','PegawaiController@store');
+
+Route::get('pegawai/edit/{id}','PegawaiController@edit');
+Route::post('pegawai/update','PegawaiController@update');
+
+
+Route::get('/pegawai/hapus/{id}','PegawaiController@hapus');
+
+Route::get('pegawai/formulir','PegawaiController@formulir');
+Route::post('pegawai/formulir/proses','PegawaiController@proses');
+
+Route::get('/input', 'MalasngodingController@input');
+ 
+Route::post('/proses', 'MalasngodingController@proses');
